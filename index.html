@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // console.log("hello world");
+        let option = ["rock", "paper", "scissors"];
+        let computerPlay = () => {
+            let choice = option[Math.floor(Math.random() * option.length)];
+            return choice.toLowerCase();
+        }
+
+        let playRound = (playerSelection, computerSelection) => {
+            if (playerSelection === "rock") {
+                if (computerSelection === "paper") {
+                    return "You lost to computer~ Paper beats rock!"
+                }
+                if (computerSelection === "scissors") {
+                    return "You won! Rock beats scissors!";
+                }
+                return "It's a tie!!"
+            }
+
+            if (playerSelection === "scissors") {
+                if (computerSelection === "paper") {
+                    return "You won! Scissors beats paper!"
+                }
+                if (computerSelection === "rock") {
+                    return "You lost to computer~ Rock beats scissors!";
+                }
+                return "It's a tie!!"
+            }
+
+            if (playerSelection === "paper") {
+                if (computerSelection === "rock") {
+                    return "You won! Paper beats rock!"
+                }
+                if (computerSelection === "scissors") {
+                    return "You lost to computer~ Scissors beats paper!";
+                }
+                return "It's a tie!!"
+            }
+        }
+
+        let game = () => {
+            for (let index = 0; index < 5; index++) {
+
+                let userWeapon = prompt("Choose your weapon: ").toLowerCase();
+                let computerSelection = computerPlay();
+
+                console.log("Computer chose: " + computerSelection + " You chose: " + userWeapon);
+                console.log(playRound(userWeapon, computerSelection));
+            }
+        }
+        game();
+
+
+    </script>
+</body>
+
+</html>
